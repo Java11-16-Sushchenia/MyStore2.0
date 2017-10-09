@@ -54,18 +54,13 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         itemName.setText(item.getName());
         itemPrice.setText(Float.toString(item.getPrice()));
 
-        Bitmap bitmap = null;
+        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),R.drawable.iphone);
 
 
-        try {
+        //          Uri uri = Uri.parse(item.getPathToPhoto());
+///            bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(),uri);
 
-            Uri uri = Uri.parse(item.getPathToPhoto());
-            bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(),uri);
-
-            //bitmap = getBitmapFromUri(Uri.parse(item.getPathToPhoto()),context);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //bitmap = getBitmapFromUri(Uri.parse(item.getPathToPhoto()),context);
         itemPhoto.setImageBitmap(bitmap);
         // Return the completed view to render on screen
         return convertView;
